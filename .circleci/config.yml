@@ -16,7 +16,6 @@ jobs:
           dockerfile: Dockerfile
           repo: $AWS_REPO_NAME
           tag: latest,$CIRCLE_SHA1
-          remote-docker-layer-caching: true
 
 workflows:
   build-and-push-to-ecr:
