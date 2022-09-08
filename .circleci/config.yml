@@ -17,10 +17,6 @@ jobs:
           repo: $AWS_REPO_NAME
           tag: latest,$CIRCLE_SHA1
           remote-docker-layer-caching: true
-      - slack/notify:
-          ignore_errors: false
-          template: basic_fail_1
-          event: fail
 
 workflows:
   build-and-push-to-ecr:
