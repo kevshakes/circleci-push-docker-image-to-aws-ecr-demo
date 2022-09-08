@@ -38,7 +38,7 @@ workflows:
     jobs:
       - aws-ecr:
           context:
-            - AWS-ECR
+            - AWS-ECR-DEMO
           filters:
             branches:
               only:
@@ -47,4 +47,4 @@ workflows:
           requires:
             - aws-ecr
           context:
-            - AWS-ECR
+            - AWS-ECR-DEMO
