@@ -4,7 +4,6 @@ version: 2.1
 
 orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
-  slack: circleci/slack@4.10.1
 
 jobs:
   aws-ecr:
@@ -13,7 +12,6 @@ jobs:
     steps:
       - setup_remote_docker:
           version: 20.10.11
-          docker_layer_caching: true
       - aws-ecr/build-and-push-image:
           dockerfile: Dockerfile
           repo: $AWS_REPO_NAME
@@ -23,15 +21,6 @@ jobs:
           ignore_errors: false
           template: basic_fail_1
           event: fail
-  slack-job:
-    resource_class: small
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - slack/notify:
-          ignore_errors: false
-          template: basic_success_1
-          event: pass
 
 workflows:
   build-and-push-to-ecr:
@@ -43,8 +32,3 @@ workflows:
             branches:
               only:
                 - main
-      - slack-job:
-          requires:
-            - aws-ecr
-          context:
-            - AWS-ECR-DEMO
