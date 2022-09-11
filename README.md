@@ -1,5 +1,9 @@
 # CI/CD Pipeline to Push Docker Image to a Private AWS ECR With CircleCI
 
+This sample project demonstrates a basic steps to creating CI/CD pipeline in CircleCI with AWS ECR integration
+
+See the full article here: https://medium.com/@dkhorev/ci-cd-pipeline-to-push-docker-image-to-a-private-aws-ecr-with-circleci-c9a8b568410
+
 ## Build the Dockerfile
 
 `docker build -t circleci-push-image-demo .`
